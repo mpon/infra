@@ -13,6 +13,8 @@ def create_terraform_task(env)
   namespace :tf do
     desc "terraform init for #{env}"
     task :init do
+      sh %Q(touch "#{dir}/terraform.tfvars")
+      puts "create #{dir}/terraform.tfvars you need to fill variables"
       sh %Q(#{docker(dir)} get)
       sh %Q(#{docker(dir)} init)
     end

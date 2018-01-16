@@ -12,3 +12,7 @@ provider "aws" {
   region  = "ap-northeast-1"
   version = "~> 1.7.0"
 }
+
+provider "template" {
+  version = "~> 1.0.0"
+}
