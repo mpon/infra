@@ -16,6 +16,18 @@ def create_terraform_task(env)
       sh %Q(#{docker(dir)} get)
       sh %Q(#{docker(dir)} init)
     end
+
+    desc "terraform plan for #{env}"
+    task :plan do
+      sh %Q(#{docker(dir)} fmt -diff=true ..)
+      sh %Q(#{docker(dir)} get)
+      sh %Q(#{docker(dir)} plan)
+    end
+
+    desc "terraform apply for #{env}"
+    task :apply do
+      sh %Q(#{docker(dir)} apply)
+    end
   end
 end
 
