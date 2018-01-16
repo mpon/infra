@@ -30,6 +30,11 @@ def create_terraform_task(env)
     task :apply do
       sh %Q(#{docker(dir)} apply)
     end
+
+    desc "terraform destroy for #{env}"
+    task :destroy do
+      sh %Q(#{docker(dir)} destroy)
+    end
   end
 end
 
