@@ -13,10 +13,13 @@ def create_terraform_task(env)
   namespace :tf do
     desc "terraform init for #{env}"
     task :init do
+      abort "you need to set TF_BACKEND_BUCKET" unless ENV["TF_BACKEND_BUCKET"]
       sh %Q(touch "#{dir}/terraform.tfvars")
       puts "create #{dir}/terraform.tfvars you need to fill variables"
       sh %Q(#{docker(dir)} get)
-      sh %Q(#{docker(dir)} init)
+      sh %Q(#{docker(dir)} init \
+            -backend-config "bucket=#{ENV["TF_BACKEND_BUCKET"]}" \
+            -backend-config "key=#{env}/terraform.tfstate")
     end
 
     desc "terraform plan for #{env}"
