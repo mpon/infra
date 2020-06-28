@@ -1,0 +1,4 @@
+plan:
+	terraform fmt -diff && terraform plan
+apply:
+	terraform fmt -diff && terraform apply
