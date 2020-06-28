@@ -1,0 +1,9 @@
+[
+  {
+    "name": "envoy",
+    "image": "envoyproxy/envoy:v1.14-latest",
+    "cpu": 10,
+    "memory": 64,
+    "essential": true
+  }
+]

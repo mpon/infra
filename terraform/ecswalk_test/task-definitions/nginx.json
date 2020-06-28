@@ -1,0 +1,9 @@
+[
+  {
+    "name": "nginx",
+    "image": "nginx:alpine",
+    "cpu": 10,
+    "memory": 64,
+    "essential": true
+  }
+]
