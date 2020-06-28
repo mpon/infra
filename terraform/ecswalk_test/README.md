@@ -2,6 +2,8 @@
 
 Test Environment for [ecswalk](https://github.com/mpon/ecswalk)
 
+This is **Not Production VPC And ECS** settings.
+
 ## How to apply
 
 ### Setup

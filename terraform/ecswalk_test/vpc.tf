@@ -13,14 +13,9 @@ module "vpc" {
   cidr = local.cidr
 
   azs             = data.aws_availability_zones.available.names
-  private_subnets = [cidrsubnet(local.cidr, 8, 1), cidrsubnet(local.cidr, 8, 2), cidrsubnet(local.cidr, 8, 3)]
-  public_subnets  = [cidrsubnet(local.cidr, 8, 4), cidrsubnet(local.cidr, 8, 5), cidrsubnet(local.cidr, 8, 6)]
+  public_subnets  = [cidrsubnet(local.cidr, 8, 1), cidrsubnet(local.cidr, 8, 2), cidrsubnet(local.cidr, 8, 3)]
+  private_subnets = []
 
   enable_nat_gateway = false
   enable_vpn_gateway = false
-
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
 }
