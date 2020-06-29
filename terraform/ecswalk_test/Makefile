@@ -1,3 +1,5 @@
+init:
+	terraform init
 plan:
 	terraform fmt -diff && terraform plan
 apply:

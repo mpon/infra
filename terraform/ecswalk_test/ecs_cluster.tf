@@ -1,6 +1,3 @@
-resource "random_pet" "cluster" {
-}
-
 resource "aws_ecs_cluster" "cluster" {
   name = random_pet.cluster.id
 }
@@ -8,9 +5,9 @@ resource "aws_ecs_cluster" "cluster" {
 resource "aws_autoscaling_group" "cluster" {
   name                 = "ecs-cluster-${aws_ecs_cluster.cluster.name}"
   vpc_zone_identifier  = module.vpc.public_subnets
-  min_size             = 1
-  max_size             = 1
-  desired_capacity     = 1
+  min_size             = local.cluster_size
+  max_size             = local.cluster_size
+  desired_capacity     = local.cluster_size
   launch_configuration = aws_launch_configuration.cluster.name
 
   tag {
@@ -45,4 +42,7 @@ data "template_file" "user_data" {
   vars = {
     cluster = aws_ecs_cluster.cluster.name
   }
+}
+
+resource "random_pet" "cluster" {
 }
