@@ -1,8 +1,8 @@
 # mpon/infra
 
-## terraform/production
+## terraform/mpon_me
 
-TBD
+Manage my `mpon.me` domain
 
 ## terraform/ecswalk_test
 
