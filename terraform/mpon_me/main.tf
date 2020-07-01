@@ -7,11 +7,6 @@ terraform {
 }
 
 provider "aws" {
-  region = "ap-northeast-1"
-}
-
-locals {
-  cluster_size        = 1
-  nginx_service_count = 5
-  envoy_service_count = 7
+  region  = "ap-northeast-1"
+  version = "~> 2.68"
 }
